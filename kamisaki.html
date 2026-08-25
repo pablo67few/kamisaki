@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kamisaki - Consultoría operativa, optimización empresarial y transformación digital.">
+    <title>Kamisakiy | Consultoría Empresarial</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --cafe-oscuro: #3b2418;
+            --cafe: #5a3825;
+            --cafe-medio: #79543b;
+            --caramelo: #a9784d;
+            --dorado: #c49a6c;
+            --crema: #f7f0e7;
+            --blanco: #fffdf9;
+            --gris: #6d625a;
+        }
+
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: var(--crema);
+            color: var(--dorado);
+            line-height: 1.6;
+        }
+
+        /* NAVBAR */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(59, 36, 24, 0.97);
+            padding: 17px 7%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 3px 15px rgba(0,0,0,.18);
+        }
+
+        .logo {
+            font-size: 30px;
+            font-weight: 800;
+            color: #fff;
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: var(--dorado);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 28px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 15px;
+            transition: .3s;
+        }
+
+        nav a:hover {
+            color: var(--dorado);
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            padding: 150px 8% 80px;
+            display: flex;
+            align-items: center;
+            background:
+                linear-gradient(110deg, rgba(59,36,24,.98), rgba(90,56,37,.90)),
+                radial-gradient(circle at 80% 20%, #b78b5c, transparent 30%);
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .tag {
+            display: inline-block;
+            border: 1px solid var(--dorado);
+            color: #e8c79d;
+            padding: 8px 17px;
+            border-radius: 30px;
+            margin-bottom: 22px;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+
+        .hero h1 {
+            font-size: clamp(48px, 8vw, 86px);
+            line-height: .95;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 span {
+            color: var(--dorado);
+        }
+
+        .hero p {
+            max-width: 700px;
+            font-size: 20px;
+            color: #eee2d5;
+            margin-bottom: 35px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 28px;
+            background: var(--dorado);
+            color: var(--cafe-oscuro);
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 7px;
+            transition: .3s;
+        }
+
+        .btn:hover {
+            background: #e0bd92;
+            transform: translateY(-3px);
+        }
+
+        .btn-outline {
+            margin-left: 10px;
+            background: transparent;
+            border: 1px solid #d6b38b;
+            color: white;
+        }
+
+        /* GENERAL */
+        section {
+            padding: 90px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title small {
+            color: var(--caramelo);
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .section-title h2 {
+            font-size: 40px;
+            margin-top: 8px;
+        }
+
+        .section-title p {
+            max-width: 700px;
+            margin: 12px auto;
+            color: var(--gris);
+        }
+
+        /* PRESENTACION */
+        .presentation {
+            background: var(--blanco);
+        }
+
+        .presentation-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 55px;
+            align-items: center;
+        }
+
+        .presentation-text h3 {
+            font-size: 31px;
+            margin-bottom: 18px;
+        }
+
+        .presentation-text p {
+            color: var(--gris);
+            margin-bottom: 17px;
+        }
+
+        .highlight {
+            background: var(--crema);
+            border-left: 5px solid var(--dorado);
+            padding: 22px;
+            border-radius: 8px;
+            margin-top: 25px;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+
+        .stat {
+            background: var(--cafe);
+            color: white;
+            padding: 35px 25px;
+            border-radius: 14px;
+            box-shadow: 0 10px 25px rgba(59,36,24,.15);
+        }
+
+        .stat h3 {
+            font-size: 26px;
+            color: var(--dorado);
+            margin-bottom: 7px;
+        }
+
+        /* PROBLEMA */
+        .problem {
+            background: var(--cafe-oscuro);
+            color: white;
+        }
+
+        .problem .section-title p {
+            color: #d9c9bb;
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .problem-card {
+            padding: 35px;
+            border: 1px solid rgba(255,255,255,.13);
+            border-radius: 12px;
+            background: rgba(255,255,255,.04);
+        }
+
+        .problem-card .icon {
+            font-size: 34px;
+            margin-bottom: 15px;
+        }
+
+        .problem-card h3 {
+            color: var(--dorado);
+            margin-bottom: 12px;
+        }
+
+        .problem-card p {
+            color: #ded3c9;
+        }
+
+        /* SERVICIOS */
+        .services {
+            background: var(--crema);
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 35px 28px;
+            border-radius: 14px;
+            border-top: 5px solid var(--cafe);
+            box-shadow: 0 8px 25px rgba(59,36,24,.08);
+            transition: .3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(59,36,24,.16);
+        }
+
+        .number {
+            font-size: 45px;
+            font-weight: 800;
+            color: #e3d4c5;
+        }
+
+        .service-card h3 {
+            margin: 8px 0 12px;
+            font-size: 22px;
+        }
+
+        .service-card h4 {
+            color: var(--caramelo);
+            margin-bottom: 15px;
+        }
+
+        .service-card ul {
+            list-style: none;
+            color: var(--gris);
+        }
+
+        .service-card li {
+            margin: 9px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .service-card li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--caramelo);
+            font-weight: bold;
+        }
+
+        /* PASO */
+        .paso {
+            background: white;
+        }
+
+        .paso-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        .paso-card {
+            position: relative;
+            padding: 32px 25px;
+            background: var(--crema);
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .paso-letter {
+            width: 65px;
+            height: 65px;
+            margin: 0 auto 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--cafe);
+            color: white;
+            border-radius: 50%;
+            font-size: 27px;
+            font-weight: bold;
+        }
+
+        .paso-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .paso-card p {
+            color: var(--gris);
+            font-size: 14px;
+        }
+
+        /* OPORTUNIDAD */
+        .opportunity {
+            background: linear-gradient(135deg, var(--cafe), var(--cafe-oscuro));
+            color: white;
+            text-align: center;
+        }
+
+        .opportunity-content {
+            max-width: 850px;
+            margin: auto;
+        }
+
+        .opportunity h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+
+        .opportunity p {
+            font-size: 19px;
+            color: #e5d8cc;
+        }
+
+        .quote {
+            margin: 35px 0;
+            padding: 25px;
+            border: 1px solid rgba(255,255,255,.2);
+            border-radius: 10px;
+            font-size: 23px;
+            font-style: italic;
+            color: #f0d5b4;
+        }
+
+        /* CLIENTES */
+        .clients {
+            background: var(--blanco);
+        }
+
+        .client-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            max-width: 950px;
+            margin: auto;
+        }
+
+        .client-card {
+            padding: 35px;
+            border-radius: 12px;
+            background: var(--crema);
+        }
+
+        .client-card h3 {
+            margin-bottom: 12px;
+            font-size: 23px;
+        }
+
+        .client-card p {
+            color: var(--gris);
+        }
+
+        /* CTA */
+        .cta {
+            padding: 80px 8%;
+            background: var(--dorado);
+            text-align: center;
+            color: var(--cafe-oscuro);
+        }
+
+        .cta h2 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .cta p {
+            max-width: 650px;
+            margin: 0 auto 28px;
+            font-size: 18px;
+        }
+
+        .cta .btn {
+            background: var(--cafe-oscuro);
+            color: white;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #281810;
+            color: #cfc1b5;
+            padding: 45px 8% 25px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-logo {
+            color: white;
+            font-size: 27px;
+            font-weight: bold;
+        }
+
+        .footer-logo span {
+            color: var(--dorado);
+        }
+
+        footer p {
+            max-width: 450px;
+            margin-top: 10px;
+        }
+
+        .footer-links a {
+            color: #cfc1b5;
+            text-decoration: none;
+            margin-left: 18px;
+        }
+
+        .copyright {
+            border-top: 1px solid rgba(255,255,255,.1);
+            padding-top: 20px;
+            text-align: center;
+            font-size: 13px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+            nav ul {
+                display: none;
+            }
+
+            .presentation-grid,
+            .problem-grid,
+            .client-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .service-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .paso-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .hero {
+                padding-top: 130px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            section {
+                padding: 65px 6%;
+            }
+
+            .hero {
+                padding-left: 6%;
+                padding-right: 6%;
+            }
+
+            .hero h1 {
+                font-size: 55px;
+            }
+
+            .hero p {
+                font-size: 17px;
+            }
+
+            .btn {
+                display: block;
+                text-align: center;
+                margin: 10px 0;
+            }
+
+            .btn-outline {
+                margin-left: 0;
+            }
+
+            .paso-grid,
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                flex-direction: column;
+            }
+
+            .footer-links a {
+                margin-left: 0;
+                margin-right: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVEGACIÓN -->
+    <nav>
+        <div class="logo">KAMISAKI<span>.</span></div>
+
+        <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#nosotros">Nosotros</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#metodo">Método P.A.S.O.</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+    </nav>
+
+
+    <!-- INICIO -->
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+
+            <span class="tag">CONSULTORÍA OPERATIVA Y EMPRESARIAL</span>
+
+            <h1>
+                Convierte tu<br>
+                <span>idea en realidad.</span>
+            </h1>
+
+            <p>
+                Acompañamos a emprendedores y empresas a transformar sus
+                ideas, optimizar sus operaciones y aumentar su rentabilidad
+                mediante soluciones prácticas, claras y adaptadas a cada negocio.
+            </p>
+
+            <a href="#servicios" class="btn">Conoce nuestros servicios</a>
+            <a href="#metodo" class="btn btn-outline">Conoce nuestro método</a>
+
+        </div>
+    </section>
+
+
+    <!-- PRESENTACIÓN -->
+    <section class="presentation" id="nosotros">
+
+        <div class="section-title">
+            <small>¿Quiénes somos?</small>
+            <h2>Consultoría que se involucra</h2>
+            <p>
+                No nos limitamos a recomendar. Acompañamos a nuestros clientes
+                directamente en el terreno.
+            </p>
+        </div>
+
+        <div class="presentation-grid">
+
+            <div class="presentation-text">
+
+                <h3>Hacemos que tu negocio funcione mejor.</h3>
+
+                <p>
+                    En <strong>Kamisaki</strong> brindamos servicios de consultoría
+                    operativa y puesta en marcha para nuevos proyectos de
+                    emprendimiento.
+                </p>
+
+                <p>
+                    Ayudamos a optimizar las inversiones iniciales mediante la
+                    selección estratégica de maquinaria, equipos e insumos,
+                    permitiendo que los proyectos puedan iniciar operaciones
+                    de manera eficiente y con costos controlados.
+                </p>
+
+                <p>
+                    También trabajamos con empresas que ya están operando,
+                    identificando fugas de dinero, mermas, tiempos muertos,
+                    problemas de inventario y cuellos de botella.
+                </p>
+
+                <div class="highlight">
+                    <strong>Nuestra filosofía:</strong><br>
+                    Menos teoría. Más soluciones prácticas.
+                    Hablamos claro y trabajamos junto al cliente.
+                </div>
+
+            </div>
+
+            <div class="stats">
+
+                <div class="stat">
+                    <h3>01</h3>
+                    <p>Optimización de costos y recursos.</p>
+                </div>
+
+                <div class="stat">
+                    <h3>02</h3>
+                    <p>Diseño y mejora de procesos productivos.</p>
+                </div>
+
+                <div class="stat">
+                    <h3>03</h3>
+                    <p>Reducción de mermas y tiempos muertos.</p>
+                </div>
+
+                <div class="stat">
+                    <h3>04</h3>
+                    <p>Transformación digital y posicionamiento.</p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- PROBLEMA -->
+    <section class="problem">
+
+        <div class="section-title">
+            <small>El problema</small>
+            <h2>¿Qué está frenando a los negocios?</h2>
+            <p>
+                Muchos proyectos tienen capital y potencial, pero carecen del
+                conocimiento técnico necesario para ejecutarlos correctamente.
+            </p>
+        </div>
+
+        <div class="problem-grid">
+
+            <div class="problem-card">
+                <div class="icon">⚙️</div>
+                <h3>Inversiones mal dimensionadas</h3>
+                <p>
+                    La elección incorrecta de maquinaria o equipos puede generar
+                    inversiones innecesarias y dificultar el inicio de operaciones.
+                </p>
+            </div>
+
+            <div class="problem-card">
+                <div class="icon">📉</div>
+                <h3>Fugas de dinero</h3>
+                <p>
+                    Compras costosas, desperdicio de materiales, tiempos muertos
+                    y procesos ineficientes reducen los márgenes del negocio.
+                </p>
+            </div>
+
+            <div class="problem-card">
+                <div class="icon">🔄</div>
+                <h3>Procesos sin estandarizar</h3>
+                <p>
+                    La dependencia del conocimiento empírico dificulta mantener
+                    una operación estable y reproducible.
+                </p>
+            </div>
+
+            <div class="problem-card">
+                <div class="icon">📱</div>
+                <h3>Débil presencia digital</h3>
+                <p>
+                    Una marca sin presencia digital limita su visibilidad,
+                    posicionamiento y posibilidades de crecimiento.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- SERVICIOS -->
+    <section class="services" id="servicios">
+
+        <div class="section-title">
+            <small>Lo que hacemos</small>
+            <h2>Nuestros servicios</h2>
+            <p>
+                Soluciones diseñadas para acompañarte desde la idea inicial
+                hasta la optimización de un negocio en funcionamiento.
+            </p>
+        </div>
+
+        <div class="service-grid">
+
+            <!-- PAQUETE 1 -->
+            <div class="service-card">
+                <div class="number">01</div>
+
+                <h3>Launchpad</h3>
+
+                <h4>Para nuevos inversionistas</h4>
+
+                <ul>
+                    <li>Definición del producto.</li>
+                    <li>Cotización de maquinaria.</li>
+                    <li>Compra neutral de equipos.</li>
+                    <li>Matriz de insumos y proveedores.</li>
+                    <li>Diseño del layout de planta.</li>
+                    <li>Acompañamiento en la primera producción.</li>
+                </ul>
+            </div>
+
+
+            <!-- PAQUETE 2 -->
+            <div class="service-card">
+                <div class="number">02</div>
+
+                <h3>Fugas de Dinero</h3>
+
+                <h4>Para empresas establecidas</h4>
+
+                <ul>
+                    <li>Auditoría operativa.</li>
+                    <li>Análisis de mermas.</li>
+                    <li>Detección de tiempos muertos.</li>
+                    <li>Análisis de compras.</li>
+                    <li>Identificación de cuellos de botella.</li>
+                    <li>Diagnóstico de oportunidades.</li>
+                </ul>
+            </div>
+
+
+            <!-- PAQUETE 3 -->
+            <div class="service-card">
+                <div class="number">03</div>
+
+                <h3>Optimización</h3>
+
+                <h4>Reducción de costos</h4>
+
+                <ul>
+                    <li>Rediseño de procesos.</li>
+                    <li>Lean Manufacturing simplificado.</li>
+                    <li>Estandarización.</li>
+                    <li>Manuales operativos sencillos.</li>
+                    <li>Renegociación de compras.</li>
+                    <li>Balanceo de líneas.</li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- MÉTODO PASO -->
+    <section class="paso" id="metodo">
+
+        <div class="section-title">
+            <small>Nuestra metodología</small>
+            <h2>Método P.A.S.O.</h2>
+            <p>
+                Una metodología propia para convertir una idea o un negocio
+                con problemas en una operación más eficiente y rentable.
+            </p>
+        </div>
+
+        <div class="paso-grid">
+
+            <div class="paso-card">
+                <div class="paso-letter">P</div>
+                <h3>Proyección</h3>
+                <p>
+                    Analizamos el producto, dimensionamos maquinaria y evaluamos
+                    la factibilidad técnica real del proyecto.
+                </p>
+            </div>
+
+            <div class="paso-card">
+                <div class="paso-letter">A</div>
+                <h3>Aprovisionamiento</h3>
+                <p>
+                    Buscamos maquinaria e insumos, negociamos con proveedores
+                    y trabajamos para reducir costos de adquisición.
+                </p>
+            </div>
+
+            <div class="paso-card">
+                <div class="paso-letter">S</div>
+                <h3>Secuencia Operativa</h3>
+                <p>
+                    Diseñamos el layout, optimizamos el flujo de trabajo y
+                    desarrollamos manuales visuales y sencillos.
+                </p>
+            </div>
+
+            <div class="paso-card">
+                <div class="paso-letter">O</div>
+                <h3>Optimización</h3>
+                <p>
+                    Acompañamos la puesta a punto para controlar costos,
+                    mermas y velocidad de producción.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- OPORTUNIDAD -->
+    <section class="opportunity">
+
+        <div class="opportunity-content">
+
+            <h2>Consultoría sin complicaciones.</h2>
+
+            <p>
+                Existe una necesidad de acompañamiento empresarial que vaya
+                más allá de los informes y las presentaciones.
+            </p>
+
+            <div class="quote">
+                “Hablamos claro. Nos involucramos. Buscamos resultados.”
+            </div>
+
+            <p>
+                En Kamisaki simplificamos la ingeniería de operaciones,
+                la cadena de suministro y Lean Manufacturing para que puedan
+                ser aplicados realmente en pequeñas y medianas empresas.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- CLIENTES -->
+    <section class="clients">
+
+        <div class="section-title">
+            <small>¿Para quién trabajamos?</small>
+            <h2>Nuestros clientes</h2>
+        </div>
+
+        <div class="client-grid">
+
+            <div class="client-card">
+                <h3>🚀 Inversionistas y emprendedores</h3>
+                <p>
+                    Personas que tienen una idea, capital para invertir y
+                    quieren comenzar un negocio, pero necesitan apoyo técnico
+                    para convertir su inversión en una operación real.
+                </p>
+            </div>
+
+            <div class="client-card">
+                <h3>🏢 Empresas y negocios familiares</h3>
+                <p>
+                    Empresas que ya venden y tienen clientes, pero necesitan
+                    ordenar sus procesos, reducir costos, controlar inventarios
+                    y mejorar su rentabilidad.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- PROPUESTA DE VALOR -->
+    <section class="presentation">
+
+        <div class="section-title">
+            <small>Nuestra propuesta de valor</small>
+            <h2>De capital a rentabilidad</h2>
+        </div>
+
+        <div style="max-width:900px; margin:auto; text-align:center;">
+
+            <p style="font-size:22px; color:var(--gris); margin-bottom:25px;">
+                Ayudamos a inversores y emprendedores a transformar su capital
+                en una línea de producción rentable mediante la optimización
+                de costos, inventarios, procesos y gestión.
+            </p>
+
+            <p style="font-size:19px; color:var(--gris);">
+                Trabajamos con soluciones prácticas, acompañamiento personalizado
+                y un lenguaje sencillo, evitando tecnicismos innecesarios.
+            </p>
+
+        </div>
+    </section>
+
+
+    <!-- CONTACTO -->
+    <section class="cta" id="contacto">
+
+        <h2>¿Tienes un proyecto?</h2>
+
+        <p>
+            Cuéntanos tu idea, negocio o problema operativo.
+            En Kamisaki te ayudamos a encontrar una solución práctica.
+        </p>
+
+        <a href="mailto:contacto@kamisaki.com" class="btn">
+            Hablemos de tu proyecto
+        </a>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <div class="footer-content">
+
+            <div>
+                <div class="footer-logo">
+                    KAMISAKI<span>.</span>
+                </div>
+
+                <p>
+                    Consultoría operativa, optimización empresarial
+                    y transformación digital.
+                </p>
+            </div>
+
+            <div class="footer-links">
+                <a href="#inicio">Inicio</a>
+                <a href="#servicios">Servicios</a>
+                <a href="#metodo">Método P.A.S.O.</a>
+                <a href="#contacto">Contacto</a>
+            </div>
+
+        </div>
+
+        <div class="copyright">
+            © 2026 Kamisaki. Todos los derechos reservados.
+        </div>
+
+    </footer>
+
+</body>
+</html>
